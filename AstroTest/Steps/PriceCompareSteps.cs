@@ -65,14 +65,14 @@ namespace AstroTest.Steps
         {
             
             _locatorPage.ProductNameEbay();
-            _locatorPage.IphonePriceAmazon();
-            _locatorPage.ProductUrlAmazon();
+            _locatorPage.IphonePriceEbay();
+            _locatorPage.ProductUrlEbay();
         }
         
         [When(@"I compare both price")]
         public void WhenICompareBothPrice()
         {
-            ScenarioContext.Current.Pending();
+            _locatorPage.compareProduct();
         }
         
         [Then(@"the result should sort in ascending order")]

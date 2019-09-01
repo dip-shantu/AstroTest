@@ -13,7 +13,9 @@ namespace AstroTest.Pages
     {
 
         private readonly IWebDriver _driver;
-        List<string> plist = new List<string>();
+        List<string> plist;
+        List<string> ebayplist;
+
         Dictionary<string, List<string>> pdictionary = new Dictionary<string, List<string>>();
 
         //Amazons locators
@@ -32,7 +34,7 @@ namespace AstroTest.Pages
         [FindsBy(How = How.XPath, Using = "//div[@class='a-section a-spacing-none']//a[@class='a-link-normal a-text-normal']")]
         private IWebElement _nameElementAmazon;
 
-        [FindsBy(How = How.XPath, Using = "(//div[@class='a-row a-size-base a-color-secondary']//span[@class='a-color-base'])[1]")]
+        [FindsBy(How = How.XPath, Using = "(//span[@class='a-color-base'])[2]")]
         private IWebElement _priceElementAmazon;
 
         [FindsBy(How = How.XPath, Using = "(//a[@class='a-link-normal a-text-normal'])[2]")]
@@ -105,8 +107,9 @@ namespace AstroTest.Pages
         {
             {
                 string _nameElementAmazon = this._nameElementAmazon.Text;
-                plist.Add(_nameElementAmazon);
-                pdictionary.Add("Amazon", new List<string>());
+                plist = new List<string>();
+                //plist.Add(_nameElementAmazon);
+                pdictionary.Add("Amazon", plist);
                 pdictionary["Amazon"].Add(_nameElementAmazon);
                 return _nameElementAmazon;
             }
@@ -117,8 +120,8 @@ namespace AstroTest.Pages
 
             {
                 var _priceElementAmazon = this._priceElementAmazon.Text;
-                plist.Add(_priceElementAmazon);
-                pdictionary.Add("Amazon", new List<string>());
+                //plist.Add(_priceElementAmazon);
+               // pdictionary.Add("Amazon", new List<string>());
                 pdictionary["Amazon"].Add(_priceElementAmazon);
                 return _priceElementAmazon;
             }
@@ -129,8 +132,8 @@ namespace AstroTest.Pages
 
             {
                 var _productUrlAmazon = this._productUrlAmazon.GetAttribute("href");
-                plist.Add(_productUrlAmazon);
-                pdictionary.Add("Amazon", new List<string>());
+                //plist.Add(_productUrlAmazon);
+                //pdictionary.Add("Amazon", new List<string>());
                 pdictionary["Amazon"].Add(_productUrlAmazon);
                 return _productUrlAmazon;
             }
@@ -183,9 +186,11 @@ namespace AstroTest.Pages
         {
             {
                 var _nameElementEbay = this._nameElementEbay.Text;
-                plist.Add(_nameElementEbay);
-                pdictionary.Add("Ebay", new List<string>());
-                pdictionary["Ebay"].Add(_nameElementEbay);
+                ebayplist = new List<string>();
+                ebayplist.Add(_nameElementEbay);
+                pdictionary.Add("Ebay", ebayplist);
+               
+                //pdictionary["Ebay"].Add(_nameElementEbay);
                 return _nameElementEbay;
             }
         }
@@ -194,8 +199,8 @@ namespace AstroTest.Pages
         {
             {
                 var _priceElementEbay = this._priceElementEbay.Text;
-                plist.Add(_priceElementEbay);
-                pdictionary.Add("Ebay", new List<string>());
+               // plist.Add(_priceElementEbay);
+                //pdictionary.Add("Ebay", new List<string>());
                 pdictionary["Ebay"].Add(_priceElementEbay);
                 return _priceElementEbay;
             }
@@ -206,11 +211,29 @@ namespace AstroTest.Pages
 
             {
                 var _productUrlEbay = this._productUrlEbay.GetAttribute("href");
-                plist.Add(_productUrlEbay);
-                pdictionary.Add("Ebay", new List<string>());
+                //plist.Add(_productUrlEbay);
+                //pdictionary.Add("Ebay", new List<string>());
                 pdictionary["Ebay"].Add(_productUrlEbay);
                 return _productUrlEbay;
             }
+        }
+
+        public void compareProduct() {
+            pdictionary = pdictionary.OrderBy(d => d.Key).
+                ToDictionary(
+                    d => d.Key,
+                    d => (List<string>)d.Value.OrderBy(v => v).ToList());
+
+            foreach (var kv in pdictionary)
+            {
+                Console.WriteLine("\n{0}", kv.Key);
+                foreach (var li in kv.Value)
+                {
+                    Console.WriteLine("\t{0}", li);
+                }
+            }
+
+
         }
 
     }

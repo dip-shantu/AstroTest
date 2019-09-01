@@ -37,13 +37,10 @@ F:\AstroTest\AstroTest\bin\Debug\xunit.core.xml
 F:\AstroTest\AstroTest\bin\Debug\xunit.execution.desktop.xml
 F:\AstroTest\AstroTest\obj\Debug\AstroTest.dll
 F:\AstroTest\AstroTest\obj\Debug\AstroTest.pdb
-G:\AstroTest\AstroTest\obj\Debug\AstroTest.csprojResolveAssemblyReference.cache
-G:\AstroTest\AstroTest\obj\Debug\AstroTest.dll
-G:\AstroTest\AstroTest\obj\Debug\AstroTest.pdb
+G:\AstroTest\AstroTest\bin\Debug\xunit.abstractions.dll
 G:\AstroTest\AstroTest\bin\Debug\xunit.runner.visualstudio.testadapter.dll
 G:\AstroTest\AstroTest\bin\Debug\xunit.runner.reporters.net452.dll
 G:\AstroTest\AstroTest\bin\Debug\xunit.runner.utility.net452.dll
-G:\AstroTest\AstroTest\bin\Debug\xunit.abstractions.dll
 G:\AstroTest\AstroTest\bin\Debug\AstroTest.dll.config
 G:\AstroTest\AstroTest\bin\Debug\AstroTest.dll
 G:\AstroTest\AstroTest\bin\Debug\AstroTest.pdb
@@ -77,3 +74,5 @@ G:\AstroTest\AstroTest\bin\Debug\WebDriver.Support.xml
 G:\AstroTest\AstroTest\bin\Debug\xunit.assert.xml
 G:\AstroTest\AstroTest\bin\Debug\xunit.core.xml
 G:\AstroTest\AstroTest\bin\Debug\xunit.execution.desktop.xml
+G:\AstroTest\AstroTest\obj\Debug\AstroTest.dll
+G:\AstroTest\AstroTest\obj\Debug\AstroTest.pdb
